@@ -1,0 +1,337 @@
+{
+  "name": "zovo-jwt-jwk-inspector",
+  "displayName": "JWT, JWKS & X.509 Cert Inspector",
+  "description": "Open .jwt, .jwks, .jwk, .pem, .crt and .cer files in VS Code: JWT claims, JWKS keys, X.509 metadata and expiry warnings, locally.",
+  "version": "0.1.0",
+  "publisher": "zovo",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#111827",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/jwt-jwk-inspector-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/theluckystrike/jwt-jwk-inspector-vscode/issues"
+  },
+  "homepage": "https://github.com/theluckystrike/jwt-jwk-inspector-vscode#readme",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "jwt",
+    "jwks",
+    "jwk",
+    "x509",
+    "pem",
+    "certificate",
+    "security",
+    "oauth"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onUri",
+    "onCustomEditor:zovo-jwt.viewer"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "zovo-jwt.viewer",
+        "displayName": "JWT, JWKS & X.509 Cert Inspector",
+        "selector": [
+          {
+            "filenamePattern": "*.jwt"
+          },
+          {
+            "filenamePattern": "*.jwks"
+          },
+          {
+            "filenamePattern": "*.jwk"
+          },
+          {
+            "filenamePattern": "*.pem"
+          },
+          {
+            "filenamePattern": "*.crt"
+          },
+          {
+            "filenamePattern": "*.cer"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "commands": [
+      {
+        "command": "zovoJwt.openWith",
+        "title": "Open in JWT, JWKS & X.509 Cert Inspector",
+        "category": "JWT & Cert Inspector",
+        "icon": "$(key)"
+      },
+      {
+        "command": "zovoJwt.openSample",
+        "title": "Open the Sample JWKS File",
+        "category": "JWT & Cert Inspector"
+      },
+      {
+        "command": "zovoJwt.openWalkthrough",
+        "title": "Get Started",
+        "category": "JWT & Cert Inspector"
+      },
+      {
+        "command": "zovoJwt.moreViewers",
+        "title": "More free tools by Zovo",
+        "category": "JWT & Cert Inspector"
+      },
+      {
+        "command": "zovoJwt.supportDeveloper",
+        "title": "Support the developer",
+        "category": "JWT & Cert Inspector"
+      },
+      {
+        "command": "zovoJwt.auditSecurity",
+        "title": "Audit JWT, JWKS and X.509 security and expiry (Pro, 1 free try)",
+        "category": "JWT & Cert Inspector"
+      },
+      {
+        "command": "zovoJwt.diffKeySets",
+        "title": "Compare two JWKS, JWT or certificate files (Pro, 1 free try)",
+        "category": "JWT & Cert Inspector"
+      },
+      {
+        "command": "zovoJwt.exportComplianceReport",
+        "title": "Export CSV and Markdown compliance inventory (Pro, 1 free try)",
+        "category": "JWT & Cert Inspector"
+      },
+      {
+        "command": "zovoJwt.zovoPro.auditSecurity",
+        "title": "Zovo Pro: Audit JWT, JWKS and X.509 security and expiry"
+      },
+      {
+        "command": "zovoJwt.zovoPro.diffKeySets",
+        "title": "Zovo Pro: Compare two JWKS, JWT or certificate files"
+      },
+      {
+        "command": "zovoJwt.zovoPro.exportComplianceReport",
+        "title": "Zovo Pro: Export CSV and Markdown compliance inventory"
+      },
+      {
+        "command": "zovoJwt.zovoTitle.auditSecurity",
+        "title": "Zovo Pro: Audit JWT, JWKS and X.509 security and expiry"
+      },
+      {
+        "command": "zovoJwt.zovoTitle.diffKeySets",
+        "title": "Zovo Pro: Compare two JWKS, JWT or certificate files"
+      },
+      {
+        "command": "zovoJwt.zovoTitle.exportComplianceReport",
+        "title": "Zovo Pro: Export CSV and Markdown compliance inventory"
+      },
+      {
+        "command": "zovoJwt.getPro",
+        "title": "Get Zovo Pro (USD 19 once, all Zovo extensions)",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoJwt.payWithPayPal",
+        "title": "Pay for Zovo Pro with PayPal (USD 19, team of 5 USD 59)",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoJwt.unlockWithSponsors",
+        "title": "I already paid: unlock with GitHub Sponsors",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoJwt.enterLicenseKey",
+        "title": "Enter Zovo Pro license key",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoJwt.removeLicense",
+        "title": "Remove Zovo Pro from this editor",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoJwt.payByCard",
+        "title": "Pay for Zovo Pro by card (USD 19)",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "zovoJwt.enterKey",
+        "title": "Enter a key",
+        "category": "Zovo Pro"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "zovoJwt.zovoTitle.auditSecurity",
+          "when": "activeCustomEditorId == 'zovo-jwt.viewer' && config.zovoJwt.showProTools",
+          "group": "zovoPro@1"
+        },
+        {
+          "command": "zovoJwt.zovoTitle.diffKeySets",
+          "when": "activeCustomEditorId == 'zovo-jwt.viewer' && config.zovoJwt.showProTools",
+          "group": "zovoPro@2"
+        },
+        {
+          "command": "zovoJwt.zovoTitle.exportComplianceReport",
+          "when": "activeCustomEditorId == 'zovo-jwt.viewer' && config.zovoJwt.showProTools",
+          "group": "zovoPro@3"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "zovoJwt.openWith",
+          "when": "resourceFilename =~ /\\.(jwt|jwks|jwk|pem|crt|cer)$/i && !explorerResourceIsFolder",
+          "group": "navigation@9"
+        },
+        {
+          "command": "zovoJwt.zovoPro.auditSecurity",
+          "when": "resourceFilename =~ /\\.(jwt|jwks|jwk|pem|crt|cer)$/i && !explorerResourceIsFolder && config.zovoJwt.showProTools",
+          "group": "zovoPro@1"
+        },
+        {
+          "command": "zovoJwt.zovoPro.diffKeySets",
+          "when": "resourceFilename =~ /\\.(jwt|jwks|jwk|pem|crt|cer)$/i && !explorerResourceIsFolder && config.zovoJwt.showProTools",
+          "group": "zovoPro@2"
+        },
+        {
+          "command": "zovoJwt.zovoPro.exportComplianceReport",
+          "when": "resourceFilename =~ /\\.(jwt|jwks|jwk|pem|crt|cer)$/i && !explorerResourceIsFolder && config.zovoJwt.showProTools",
+          "group": "zovoPro@3"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "zovoJwt.auditSecurity",
+          "when": "config.zovoJwt.showProTools"
+        },
+        {
+          "command": "zovoJwt.diffKeySets",
+          "when": "config.zovoJwt.showProTools"
+        },
+        {
+          "command": "zovoJwt.exportComplianceReport",
+          "when": "config.zovoJwt.showProTools"
+        },
+        {
+          "command": "zovoJwt.zovoPro.auditSecurity",
+          "when": "false"
+        },
+        {
+          "command": "zovoJwt.zovoPro.diffKeySets",
+          "when": "false"
+        },
+        {
+          "command": "zovoJwt.zovoPro.exportComplianceReport",
+          "when": "false"
+        },
+        {
+          "command": "zovoJwt.zovoTitle.auditSecurity",
+          "when": "false"
+        },
+        {
+          "command": "zovoJwt.zovoTitle.diffKeySets",
+          "when": "false"
+        },
+        {
+          "command": "zovoJwt.zovoTitle.exportComplianceReport",
+          "when": "false"
+        },
+        {
+          "command": "zovoJwt.openWith",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "JWT, JWKS & X.509 Cert Inspector",
+      "properties": {
+        "zovoJwt.maxFileMB": {
+          "type": "number",
+          "default": 10,
+          "minimum": 1,
+          "maximum": 128,
+          "description": "Files up to this size open in the JWT, JWKS & X.509 Cert Inspector."
+        },
+        "zovoJwt.pageSize": {
+          "type": "number",
+          "default": 100,
+          "minimum": 20,
+          "maximum": 500,
+          "description": "Rows shown on one page of the key and certificate table."
+        },
+        "zovoJwt.expiryWarnDays": {
+          "type": "number",
+          "default": 30,
+          "minimum": 1,
+          "maximum": 365,
+          "description": "Warn when a certificate or token expires within this many days."
+        },
+        "zovoJwt.showProTools": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the Zovo Pro tools (security audit, key set diff and compliance inventory export) in the Command Palette, the Explorer menu, the editor title menu and the viewer toolbar. Everything free stays visible."
+        },
+        "zovoJwt.askForRating": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ask once for a Marketplace rating after 2 JWT, JWKS or certificate files open without an error. Choosing No thanks never asks again. Nothing is sent anywhere."
+        },
+        "zovoJwt.showSupportLinks": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the small Rate, More free tools and Zovo Pro links at the bottom of the viewer. Nothing is sent anywhere."
+        },
+        "zovo.jwtinsp.trial.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show the 7-day Zovo Pro trial button in the Pro panel."
+        }
+      }
+    },
+    "walkthroughs": [
+      {
+        "id": "zovoJwt.start",
+        "title": "Get started with the JWT, JWKS & X.509 Cert Inspector",
+        "description": "Decode .jwt, .jwks, .jwk, .pem, .crt and .cer files in VS Code: headers, claims, key IDs, certificate subjects, SANs and expiry checks, locally.",
+        "steps": [
+          {
+            "id": "open",
+            "title": "Open a JWT, JWKS or X.509 certificate file",
+            "description": "Click any .jwt, .jwks, .jwk, .pem, .crt or .cer file in the Explorer to inspect decoded claims, keys, certificate chains and security findings.\n[Open the sample JWKS file](command:zovoJwt.openSample)",
+            "media": {
+              "image": "images/screenshot.png",
+              "altText": "A JWKS and certificate file open in the inspector showing decoded keys, algorithms, expiry status and security findings."
+            },
+            "completionEvents": [
+              "onCommand:zovoJwt.openSample"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node scripts/test.js",
+    "package": "npx -y @vscode/vsce@3 package --no-dependencies"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/theluckystrike/sponsorships?tier_id=679878"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "keys": [
+    {
+      "kty": "EC",
+      "crv": "P-256",
+      "kid": "auth-es256-2026-01",
+      "use": "sig",
+      "alg": "ES256",
+      "x": "f83OJ3D2xF1Bg8vub9tLe1gHMzV76e8Tus9uPHvRVEU",
+      "y": "x_FEzRu9m36HLN_tue659LNpXW6pCyStikYjKIWI5a0"
+    },
+    {
+      "kty": "OKP",
+      "crv": "Ed25519",
+      "kid": "edge-eddsa-2026-02",
+      "use": "sig",
+      "alg": "EdDSA",
+      "x": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+    },
+    {
+      "kty": "oct",
+      "kid": "legacy-hs256-dev",
+      "use": "sig",
+      "alg": "HS256"
+    }
+  ]
+}
