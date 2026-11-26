@@ -1,6 +1,6 @@
 {
   "name": "zovo-jwt-jwk-inspector",
-  "displayName": "JWT, JWKS & X.509 Cert Inspector",
+  "displayName": "JWT, JWKS & X.509 Inspector",
   "description": "Open .jwt, .jwks, .jwk, .pem, .crt and .cer files in VS Code: JWT claims, JWKS keys, X.509 metadata and expiry warnings, locally.",
   "version": "0.1.0",
   "publisher": "zovo",
@@ -50,7 +50,7 @@
     "customEditors": [
       {
         "viewType": "zovo-jwt.viewer",
-        "displayName": "JWT, JWKS & X.509 Cert Inspector",
+        "displayName": "JWT, JWKS & X.509 Inspector",
         "selector": [
           {
             "filenamePattern": "*.jwt"
@@ -152,7 +152,7 @@
       },
       {
         "command": "zovoJwt.unlockWithSponsors",
-        "title": "I already paid: unlock with GitHub Sponsors",
+        "title": "I already paid: activate with GitHub Sponsors",
         "category": "Zovo Pro"
       },
       {

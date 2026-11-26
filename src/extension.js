@@ -26,7 +26,7 @@ function openWithCommand(uri) {
 function activate(context) {
   const sub = (d) => context.subscriptions.push(d);
   let rating = { success() {}, failure() {} };
-  try { rating = createRatingPrompt({ vscode, context, extensionId: EXT_ID, section: PREFIX, name: 'JWT, JWKS & X.509 Cert Inspector', policy: 'reach2' }); } catch (e) { /* rating is optional */ }
+  try { rating = createRatingPrompt({ vscode, context, extensionId: EXT_ID, section: PREFIX, name: 'JWT, JWKS & X.509 Inspector', policy: 'reach2' }); } catch (e) { /* rating is optional */ }
   support.registerSupport({ vscode, context, prefix: PREFIX, selfId: EXT_ID });
   const pro = createPro({ vscode, context });
   const reach = createReach({ vscode, ...reachConfig, maximum: pro.TRIES, context, licensed: () => !!pro.licensed, shown: () => setting('showProTools', true) !== false });

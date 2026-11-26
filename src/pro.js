@@ -30,7 +30,7 @@ function surfaceOf(arg) {
   return undefined;
 }
 
-function createPro({ vscode, context, license, prefix = 'zovoJwt', productName = 'JWT, JWKS & X.509 Cert Inspector' }) {
+function createPro({ vscode, context, license, prefix = 'zovoJwt', productName = 'JWT, JWKS & X.509 Inspector' }) {
   const emitter = new vscode.EventEmitter();
   const lic = license || createLicense({ vscode, context, sku: SKU, name: 'Zovo', product: productName, commandPrefix: prefix, proTools: TOOLS });
   if (lic.onDidChange) lic.onDidChange(() => emitter.fire(lic.isPro(SKU)));
